@@ -6,6 +6,14 @@ export async function getCategories() {
     return data
 }
 
+ export async function getSmartphones() {
+    const {data:
+        {products}
+    } = await api.get('/category/smartphones')
+
+     return products
+    }
+
 export async function getDetalhes(id) {
     const { data } = await api.get(`/${id}`)
     console.log(data)

@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div className="w-full flex p-5 justify-between text-emerald-800 bg-gray-100 py-5 items-start">
+    <div className="w-full flex p-5 justify-between bg-gray-100 py-5 items-start">
       <span className="w-52 flex flex-col">
         <h3 className="text-xl py-1">Sobre nós</h3>
         <p>Contato</p>

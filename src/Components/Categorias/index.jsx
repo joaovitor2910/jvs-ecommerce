@@ -2,19 +2,35 @@ import { Link } from "react-router-dom"
 import { useContext } from "react";
 import { UserContext } from "../../contexts/globalContexts";
 
-function Categorias() {
+export function MenuCategorias() {
     const {category} = useContext(UserContext)
     return (
-        <div className={ `w-full overflow-hidden p-[15px] text-emerald-800 font-['League_Spartan'] gap-[5px] flex flex-col bg-white relative top-[100px] shadow-lg rounded ${
-          category ? 'opacity-100 max-h-[200px]' : 'opacity-0 max-h-0'} transition-all duration-300 ease-linear`}>
-           <Link to={'/category/smartphones'}><p>Smartphones</p></Link>
-           <Link to={'/category/tablets'}><p>Tablets</p></Link>
-           <Link to={'/category/laptops'}><p>Laptops</p></Link>
-           <Link to={'/category/mobile-accessories'}><p>Acessórios para Celular</p></Link>
-           <Link to={'/category/mens-watches'}><p>Relógios</p></Link>
-           <Link to={'/category/sports-accessories'}><p>Acessórios Esportivos</p></Link>
+        <div className={`
+          fixed top-20 z-999 left-0 w-full bg-white rounded shadow-lg
+          overflow-hidden flex flex-col font-['League_Spartan'] text-xl gap-1 p-3
+          ${category ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none'}
+        `}>
+           <Link className="hover:bg-gray-200 p-1.5" to={'/category/smartphones'}><p>Smartphones</p></Link>
+           <Link className="hover:bg-gray-200 p-1.5" to={'/category/tablets'}><p>Tablets</p></Link>
+           <Link className="hover:bg-gray-200 p-1.5" to={'/category/laptops'}><p>Laptops</p></Link>
+           <Link className="hover:bg-gray-200 p-1.5" to={'/category/mobile-accessories'}><p>Acessórios para Celular</p></Link>
+           <Link className="hover:bg-gray-200 p-1.5" to={'/category/mens-watches'}><p>Relógios</p></Link>
+           <Link className="hover:bg-gray-200 p-1.5" to={'/category/sports-accessories'}><p>Acessórios Esportivos</p></Link>
         </div>
     )
 }
 
-export default Categorias
+export function Categorias() {
+    return (
+        <div className="w-[100%] flex justify-center ">
+           <div className="w-full flex font-['League_Spartan justify-evenly">
+           <Link className="bg-[#F25C05] text-white font-semibold hover:opacity-[0.9] text-xl px-4 py-2 rounded-md" to={'/category/smartphones'}><p>Smartphones</p></Link>
+           <Link className="bg-[#F25C05] text-white font-semibold hover:opacity-[0.9] text-xl px-4 py-2 rounded-md" to={'/category/tablets'}><p>Tablets</p></Link>
+           <Link className="bg-[#F25C05] text-white font-semibold hover:opacity-[0.9] text-xl px-4 py-2 rounded-md" to={'/category/laptops'}><p>Laptops</p></Link>
+           <Link className="bg-[#F25C05] text-white font-semibold hover:opacity-[0.9] text-xl px-4 py-2 rounded-md" to={'/category/mobile-accessories'}><p>Acessórios para Celular</p></Link>
+           <Link className="bg-[#F25C05] text-white font-semibold hover:opacity-[0.9] text-xl px-4 py-2 rounded-md" to={'/category/mens-watches'}><p>Relógios</p></Link>
+           <Link className="bg-[#F25C05] text-white font-semibold hover:opacity-[0.9] text-xl px-4 py-2 rounded-md" to={'/category/sports-accessories'}><p>Acessórios Esportivos</p></Link>
+           </div>
+        </div>
+    )
+}
