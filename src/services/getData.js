@@ -14,6 +14,46 @@ export async function getCategories() {
      return products
     }
 
+     export async function getTablets() {
+    const {data:
+        {products}
+    } = await api.get('/category/tablets')
+
+     return products
+    }
+
+     export async function getLaptops() {
+    const {data:
+        {products}
+    } = await api.get('/category/laptops')
+
+     return products
+    }
+
+     export async function getSportsAccessories() {
+    const {data:
+        {products}
+    } = await api.get('/category/sports-accessories')
+
+     return products
+    }
+
+     export async function getMobileAccessories() {
+    const {data:
+        {products}
+    } = await api.get('/category/mobile-accessories')
+
+     return products
+    }
+
+     export async function getWatches() {
+    const {data:
+        {products}
+    } = await api.get('/category/mens-watches')
+
+     return products
+    }
+
 export async function getDetalhes(id) {
     const { data } = await api.get(`/${id}`)
     console.log(data)
