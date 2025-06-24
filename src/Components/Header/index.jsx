@@ -20,7 +20,7 @@ function Header() {
             type="text"
             />
         <div 
-      className={`bg-white absolute z-9 rounded-md font-medium text-lg w-50 h-auto p-2 top-20 left-0 ${menu ? 'block' : 'hidden'}`}>
+      className={`bg-white absolute z-999 rounded-md font-medium text-lg w-50 h-auto p-2 top-20 left-0 ${menu ? 'block' : 'hidden'}`}>
         <p className="cursor-pointer m-2 h:bg-gray-300" onClick={() => setCategory(!category)}>Categorias</p>
         <p className="cursor-pointer m-2 h:bg-gray-300">Contato</p>
         <p className="cursor-pointer m-2 h:bg-gray-300">Login</p>
@@ -45,7 +45,7 @@ function Header() {
             <li className="cursor-pointer" onClick={() => navigate('/')}>Home</li>
           <li className="cursor-pointer">Carrinho</li>
           <li className="cursor-pointer w-7"><img src={Profile} alt="" /></li>
-          <li className="cursor-pointer w-7" onClick={() => setMenu(!menu)}><img src={Hamburger} alt="" /></li>
+          <li className="cursor-pointer w-7" ><img src={Hamburger} alt="" onClick={() => setMenu(!menu)} /></li>
           </div>
         </ul>
       </nav>

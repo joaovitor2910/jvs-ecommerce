@@ -14,7 +14,7 @@ function SlideCards({title, products, setNewImage}) {
       <h1 className="text-2xl p-4">{title}</h1>
       <Swiper
         modules={[Navigation]}
-        spaceBetween={250}
+        spaceBetween={150}
         slidesPerView={2}
         navigation={false}
         breakpoints={{
@@ -25,10 +25,10 @@ function SlideCards({title, products, setNewImage}) {
       >
         {products.map((item) => (
           <SwiperSlide key={item.id}>
-            <div className="text-xl w-[250px] pt-1 px-4 rounded-md flex flex-col justify-between">
+            <div className="text-xl w-[220px] pt-1 px-4 rounded-md flex flex-col justify-between">
               <div
                 style={{ backgroundImage: `url(${item.images[0]})` }}
-                className="h-70 bg-cover bg-center bg-gray-200 bg-no-repeat cursor-pointer"
+                className="h-70 md:h-60 md:w-full bg-cover bg-center bg-gray-200 bg-no-repeat cursor-pointer"
                 onClick={() => {
                   navigate(`/detalhes/${item.id}`);
                   setNewImage(item.images[0]);
@@ -55,7 +55,7 @@ function SlideCards({title, products, setNewImage}) {
 
                 <button
                   onClick={() => setNewImage(item.images[0])}
-                  className="bg-gray-800 flex justify-evenly items-center text-white px-2 py-4 rounded-md font-semibold hover:bg-gray-700 transition-colors cursor-pointer"
+                  className="bg-gray-800 flex justify-evenly items-center text-white px-2 py-2 rounded-md font-semibold hover:bg-gray-700 transition-colors cursor-pointer"
                 >
                   Adicionar ao Carrinho
                 </button>
