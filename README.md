@@ -1,12 +1,93 @@
-# React + Vite
+# 🛒 JVS E-commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo ao **JVS E-commerce**, um projeto de loja virtual desenvolvido como parte do meu portfólio de desenvolvimento Full Stack. O foco principal foi construir uma aplicação responsiva, moderna e com uma boa experiência de navegação para o usuário.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Sobre o Projeto
 
-## Expanding the ESLint configuration
+O **JVS E-commerce** é uma aplicação web que simula um ambiente de compras online. O projeto foi pensado para trabalhar conceitos como **consumo de API**, **responsividade**, **componentização em React** e **estilização com Tailwind CSS**, além de boas práticas de performance e usabilidade.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Para a listagem dos produtos, foi utilizada a [DummyJSON API](https://dummyjson.com/products), uma API pública que fornece dados fictícios de produtos, ideal para simulações de e-commerce.
+
+---
+
+## 🎨 Layout e Funcionalidades
+
+### ✨ Principais funcionalidades:
+
+- ✅ Listagem dinâmica de produtos
+- ✅ Filtro por categorias
+- ✅ Carrossel de produtos em destaque (usando **Swiper.js**)
+- ✅ Layout totalmente responsivo (Mobile First)
+- ✅ Design clean e moderno
+- ✅ Navegação por categorias
+- ✅ Exibição de detalhes básicos de cada produto
+- ✅ Estrutura preparada para futura adição de funcionalidades como carrinho e página de produto detalhado
+
+---
+
+### 📱 Responsividade
+
+O layout foi projetado para se adaptar bem a diferentes tamanhos de tela, desde dispositivos móveis até desktops. O foco foi garantir uma navegação fluida e intuitiva em todas as resoluções.
+
+---
+
+## 🧰 Tecnologias Utilizadas
+
+| Tecnologia        | Descrição                                  |
+|-------------------|--------------------------------------------|
+| **React.js**      | Biblioteca JavaScript para construção da interface |
+| **Tailwind CSS**  | Framework de CSS utilitário para estilização rápida |
+| **Swiper.js**     | Biblioteca para criação de carrosséis responsivos |
+| **DummyJSON API** | API pública utilizada para simular os produtos |
+| **Vercel**        | Plataforma de deploy para hosped
+
+## 🚀 Como Executar o Projeto Localmente
+
+1. **Clone o repositório:**
+
+```bash
+git clone https://github.com/seu-usuario/jvs-ecommerce.git
+
+Acesse a pasta do projeto:
+cd jvs-ecommerce
+
+Instale as dependências:
+npm install
+
+Inicie o servidor de desenvolvimento:
+npm run dev
+
+Abra no navegador:
+http://localhost:5173
+```
+## 🌐 Deploy
+
+O projeto está disponível online através da Vercel:
+
+👉 [https://jvs-ecommerce.vercel.app/](https://jvs-ecommerce.vercel.app/)
+
+---
+
+## 🎯 Aprendizados
+
+Durante o desenvolvimento deste projeto, pude praticar:
+
+- **Consumo de API REST**
+- **Gerenciamento de estado no React**
+- **Estilização avançada com Tailwind**
+- **Componentização e reutilização de código**
+- **Responsividade Mobile First**
+- **Deploy de aplicação Front-end**
+
+---
+
+## 📞 Contato
+
+Caso queira saber mais ou tenha interesse em colaborar:
+
+- **Nome:** João Vitor dos Santos Siqueira  
+- **Email:** joaovitor.siq8@gmail.com  
+- **LinkedIn:** [https://www.linkedin.com/in/joao-vitor-dos-santos-siqueira/](https://www.linkedin.com/in/joao-vitor-dos-santos-siqueira/)
+
