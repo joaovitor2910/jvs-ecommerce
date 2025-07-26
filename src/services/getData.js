@@ -14,6 +14,14 @@ export async function getCategories() {
      return products
     }
 
+    export async function getProductsByCategory(category) {
+    const {data:
+        {products}
+    } = await api.get(`/category/${category}`)
+
+     return products
+    }
+
      export async function getTablets() {
     const {data:
         {products}

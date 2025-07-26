@@ -33,7 +33,6 @@ function Cards() {
 
     getProducts();
   }, []);
-  console.log(smartphones);
 
   return (
     <div className=" flex flex-col pt-[50px] bg-gray-100">

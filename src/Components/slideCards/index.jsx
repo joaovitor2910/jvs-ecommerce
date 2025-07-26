@@ -43,7 +43,7 @@ function SlideCards({title, products, setNewImage}) {
                     setNewImage(item.images[0]);
                   }}
                 >
-                  {item.title}
+                  {item.title.length > 14 ? item.title.slice(0, 14) + '...' : item.title}
                 </p>
 
                 <p className="text-xl mb-1">{`${(
