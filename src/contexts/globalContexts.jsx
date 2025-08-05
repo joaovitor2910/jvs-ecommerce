@@ -11,8 +11,11 @@ export function ContextStorage({children}) {
     const [newImage, setNewImage] = useState()
     const [userMenu, setUserMenu] = useState(false)
     const [userInfo, setUserInfo] = useState()
+    const [openCart, setOpenCart] = useState()
+    const [productById, setProductById] = useState([])
+      const [cartItems, setCartItems] = useState([])
     return (
-        <UserContext.Provider value={{itens, setItens, menu, setMenu, category, setCategory, detalhes, setDetalhes, images, setImages, newImage, setNewImage, userMenu, setUserMenu, userInfo, setUserInfo}}>
+        <UserContext.Provider value={{itens, setItens, menu, setMenu, category, setCategory, detalhes, setDetalhes, images, setImages, newImage, setNewImage, userMenu, setUserMenu, userInfo, setUserInfo, openCart, setOpenCart, productById, setProductById, cartItems, setCartItems}}>
             { children }
         </UserContext.Provider>
     )

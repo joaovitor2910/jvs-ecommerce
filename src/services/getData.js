@@ -74,3 +74,9 @@ export async function getImages(id) {
     return images
 }
 
+export async function getProductById(id) {
+    const { data } = await api.get(`/${id}`)
+    console.log(data)
+    return data
+}
+

@@ -3,6 +3,7 @@ import Footer from "../../Components/Footer"
 import Cards from "../../Components/Cards"
 import Slider from "../../Components/Slider"
 import { MenuCategorias } from "../../Components/Categorias"
+import Cart from "../../Components/cart"
 
 function Home() {
     return (
@@ -11,6 +12,7 @@ function Home() {
         <Slider />
         <MenuCategorias />
         <Cards />
+        <Cart />
         <Footer />
         </div>
         )

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Sidebar() {
   return (
     <div
-      className=" fixed top-20 z-999 left-0 h-full w-60 bg-gray-200 border-r border-gray-400 rounded-none shadow-lg flex flex-col font-['League_Spartan'] text-xl gap-2 p-3">
+      className="hidden md:flex  top-20 left-0 h-auto w-60 bg-gray-200 border-r border-gray-400 rounded-none shadow-lg flex-col font-['League_Spartan'] text-xl gap-2 px-3 py-8 ">
       <Link className="hover:bg-gray-300 p-1.5" to={"/category/smartphones"}>
         <p>Smartphones</p>
       </Link>

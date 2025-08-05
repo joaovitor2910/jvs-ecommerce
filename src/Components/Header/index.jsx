@@ -5,28 +5,12 @@ import Hamburger from '../../assets/more.png'
 import Profile from '../../assets/account.png'
 import Search from '../../assets/search.png'
 import { useNavigate } from "react-router-dom";
-import { loginUser, logout, user } from "../../firebaseConfig";
-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "firebase/auth";
-import { initializeApp } from "firebase/app";
+import { auth, logout, provider } from "../../firebaseConfig";
+import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "firebase/auth";
 
 function Header() {
-  const {category, setCategory, menu, setMenu, userMenu, setUserMenu, userInfo, setUserInfo} = useContext(UserContext)
+  const {category, setCategory, menu, setMenu, userMenu, setUserMenu, userInfo, setUserInfo, openCart, setOpenCart} = useContext(UserContext)
   const navigate = useNavigate()
-
-  const provider = new GoogleAuthProvider()
-  
-  const firebaseConfig = {
-      apiKey: "AIzaSyBf4OE9QAW43u0_zdGst7yBcllUrV3WbsA",
-    authDomain: "auth-jvstore.firebaseapp.com",
-    projectId: "auth-jvstore",
-    storageBucket: "auth-jvstore.firebasestorage.app",
-    messagingSenderId: "830940760430",
-    appId: "1:830940760430:web:202647a1afe9cac126597f",
-    measurementId: "G-4GY9EDJQFM"
-  }
-  
-  const app = initializeApp(firebaseConfig)
-  const auth = getAuth(app)
 
   useEffect(() => {
     const reload = onAuthStateChanged(auth, (user) => {
@@ -76,7 +60,7 @@ function Header() {
         <ul className=" flex items-center select-none font-['Montserrat'] text-xl font-medium justify-between p-4 md:p-2 h-full">
           <img  onClick={() => navigate('/')} className="w-[70px] h-[70px] cursor-pointer" src={Logo} />
           <li className="cursor-pointer transition" onClick={() => setCategory(!category)}><p>Categorias</p></li>
-          <div className="flex w-[450px] bg-gray-200 rounded-4xl items-center">
+          <div className={`flex w-[450px] bg-gray-200 rounded-4xl items-center`}>
           <input
             border
             placeholder="Pesquise..."
@@ -86,8 +70,7 @@ function Header() {
             <img src={Search} alt="lupa" className="w-6 h-6 m-2 cursor-pointer" />
             </div>
           <div className="flex gap-6">
-            <li className="cursor-pointer" onClick={() => navigate('/')}>Home</li>
-          <li className="cursor-pointer">Carrinho</li>
+          <li className="cursor-pointer" onClick={() => setOpenCart(!openCart)}>Carrinho</li>
           <li className="cursor-pointer w-7"><img src={Profile} onClick={() => setUserMenu(!userMenu)} alt="" /></li>
           
           </div>

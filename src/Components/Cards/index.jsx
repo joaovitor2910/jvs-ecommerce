@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import {
   getLaptops,
   getMobileAccessories,
+  getProductById,
   getSmartphones,
   getSportsAccessories,
   getTablets,
@@ -33,7 +34,6 @@ function Cards() {
 
     getProducts();
   }, []);
-
   return (
     <div className=" flex flex-col pt-[50px] bg-gray-100">
       <Categorias />

@@ -1,31 +1,33 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { getProductsByCategory } from "../../services/getData";
 import Header from "../../Components/Header";
 import Sidebar from "../../Components/Sidebar";
+import { UserContext } from "../../contexts/globalContexts";
 
 function CategoryProducts() {
   const { id } = useParams();
   const [products, setProducts] = useState();
-
+  const {setNewImage} = useContext(UserContext)
+  const navigate = useNavigate()
   useEffect(() => {
     async function getProducts() {
       setProducts(await getProductsByCategory(id));
     }
     getProducts();
-  }, []);
+  }, [products]);
   return (
-    <>
+    <div className="">
       <Header />
-      <div>
-    <Sidebar />
+      <div className="w-full md:flex">
+      <Sidebar />
       {products && (
-        <div className="bg-white grid grid-cols-2 md:gap-0 md:bg-gray-200 gap-2 md:flex flex-col md:items-start place-items-center md:relative left-60">
+        <div className="bg-white w-full grid grid-cols-2 justify-center md:gap-2 md:bg-gray-200 gap-2 place-items-start ">
           {products.map((item) => (
-            <div className="text-xl w-[500px] pt-1 px-4 rounded-md md:m-4 bg-white md:flex justify-between">
+            <div className="text-xl w-[400px] pt-1 p-4 rounded-md md:m-2 bg-white md:flex">
               <div
-                style={{ backgroundImage: `url(${item.images[1]})`, margin: '8px' }}
-                className="h-70 md:h-60 md:w-50 bg-cover bg-center md:bg-white bg-gray-100 bg-no-repeat cursor-pointer"
+                style={{ backgroundImage: `url(${item.images[0]})`, margin: '8px' }}
+                className="h-70 md:h-50 md:w-50 bg-cover bg-center md:bg-white bg-gray-100 bg-no-repeat cursor-pointer"
                 onClick={() => {
                   navigate(`/detalhes/${item.id}`);
                   setNewImage(item.images[0]);
@@ -71,7 +73,7 @@ function CategoryProducts() {
         </div>
       )}
     </div>
-    </>
+    </div>
   );
 }
 
