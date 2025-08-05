@@ -7,6 +7,7 @@ import Search from '../../assets/search.png'
 import { useNavigate } from "react-router-dom";
 import { auth, logout, provider } from "../../firebaseConfig";
 import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import cart from '../../assets/grocery-store.png'
 
 function Header() {
   const {category, setCategory, menu, setMenu, userMenu, setUserMenu, userInfo, setUserInfo, openCart, setOpenCart} = useContext(UserContext)
@@ -69,8 +70,8 @@ function Header() {
             />
             <img src={Search} alt="lupa" className="w-6 h-6 m-2 cursor-pointer" />
             </div>
-          <div className="flex gap-6">
-          <li className="cursor-pointer" onClick={() => setOpenCart(!openCart)}>Carrinho</li>
+          <div className="flex w-40 justify-between">
+          <img src={cart} className="cursor-pointer w-6" onClick={() => setOpenCart(!openCart)}/>
           <li className="cursor-pointer w-7"><img src={Profile} onClick={() => setUserMenu(!userMenu)} alt="" /></li>
           
           </div>

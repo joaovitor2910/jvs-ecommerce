@@ -73,8 +73,8 @@ function Cart() {
   }, []);
   return (
     <>
-      <div className={`fixed z-9 p-2 top-20 right-0 border-gray-800 border-3 bg-gray-800 text-white w-80 h-[85vh] overflow-y-auto ${openCart ? 'block' : 'hidden'}`}>
-        <div>
+      <div className={`fixed z-9 p-2 top-20 right-0 border-gray-800 border-3 bg-gray-800 text-white w-80 h-[87vh] flex flex-col  ${openCart ? 'block' : 'hidden'}`}>
+        <div className="overflow-y-auto">
           {productById.length === 0 ? (
             <p className="text-lg">Seu carrinho está vazio... Adicione mais itens</p>
           ) :
@@ -103,7 +103,7 @@ function Cart() {
 
               <div className="flex gap-10 items-center">
                 <p className="text-lg">Quantidade: {item.quantity}</p>
-                <button className="text-3xl cursor-pointer disabled:text-gray-800" onClick={() => 
+                <button className="text-3xl cursor-pointer disabled:invisible" onClick={() => 
                   decrementItem(item.id)
                 }
                 disabled={item.quantity === 1}
@@ -117,11 +117,11 @@ function Cart() {
         ))}
         </>
     )}
-        <div className="flex justify-center mt-1 text-gray-800 ">
-        <button className="cursor-pointer bg-white w-full h-full p-3 rounded-sm hover:bg-gray-800 hover:text-white transition duration-300 border-1"
+        </div>
+        <div className="flex justify-center pt-2  text-gray-800 ">
+        <button className="cursor-pointer bg-white w-full h-full p-2 rounded-sm hover:bg-gray-800 hover:text-white mt-auto transition duration-300 border-1"
         onClick={() => handleCheckout(userInfo)}
         >Finalizar Carrinho</button>
-        </div>
         </div>
       </div>
     </>

@@ -9,7 +9,7 @@ import { UserContext } from '../../contexts/globalContexts';
 
 
 function SlideCards({title, products, setNewImage}) {
-  const { setProductById } = useContext(UserContext)
+  const { setProductById, setOpenCart, openCart } = useContext(UserContext)
   const navigate = useNavigate();
 
   async function getProduct(id) {
@@ -80,6 +80,7 @@ function SlideCards({title, products, setNewImage}) {
                   onClick={() => {
                     setNewImage(item.images[0])
                     getProduct(item.id)
+                    setOpenCart(true)
                   }
                   } 
                   className="bg-gray-800 flex justify-evenly items-center text-white px-2 py-2 rounded-md font-semibold hover:bg-gray-700 transition-colors cursor-pointer"
