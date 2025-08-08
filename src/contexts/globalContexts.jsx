@@ -12,10 +12,16 @@ export function ContextStorage({children}) {
     const [userMenu, setUserMenu] = useState(false)
     const [userInfo, setUserInfo] = useState()
     const [openCart, setOpenCart] = useState()
-    const [productById, setProductById] = useState([])
-      const [cartItems, setCartItems] = useState([])
+    const [search, setSearch] = useState()
+    const [resultSearch, setResultSearch] = useState()
+
+    const [productById, setProductById] = useState(() => {
+        const saved = localStorage.getItem("productById");
+        return saved ? JSON.parse(saved) : []})
+
+    const [cartItems, setCartItems] = useState([])
     return (
-        <UserContext.Provider value={{itens, setItens, menu, setMenu, category, setCategory, detalhes, setDetalhes, images, setImages, newImage, setNewImage, userMenu, setUserMenu, userInfo, setUserInfo, openCart, setOpenCart, productById, setProductById, cartItems, setCartItems}}>
+        <UserContext.Provider value={{itens, setItens, menu, setMenu, category, setCategory, detalhes, setDetalhes, images, setImages, newImage, setNewImage, userMenu, setUserMenu, userInfo, setUserInfo, openCart, setOpenCart, productById, setProductById, cartItems, setCartItems, search, setSearch, resultSearch, setResultSearch}}>
             { children }
         </UserContext.Provider>
     )

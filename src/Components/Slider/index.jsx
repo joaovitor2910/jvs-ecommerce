@@ -9,7 +9,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 function Slider() {
   return (
     <>
-    <Swiper className="w-[80%] h-full mt-10 md:w-full md:-full md:hidden flex justify-center items-center"
+    <Swiper className="w-[80%] h-full mt-5 md:w-full md:-full md:hidden flex justify-center items-center"
     modules={[Navigation, Autoplay]}
       navigation={{
         nextEl: '.swiper-button-next-custom',

@@ -3,7 +3,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { useNavigate } from 'react-router-dom';
-import { getProductById } from '../../services/getData';
+import { addProduct, getProductById } from '../../services/getData';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/globalContexts';
 
@@ -11,24 +11,6 @@ import { UserContext } from '../../contexts/globalContexts';
 function SlideCards({title, products, setNewImage}) {
   const { setProductById, setOpenCart, openCart } = useContext(UserContext)
   const navigate = useNavigate();
-
-  async function getProduct(id) {
-  const res = await getProductById(id)
-
-  setProductById(prev => {
-  const itemExist = prev.find(item => item.id === res.id)
-
-  if (itemExist) {
-    return prev.map(item =>
-      item.id === res.id
-        ? { ...item, quantity: (item.quantity || 0) + 1 }
-        : item
-    )
-  } else {
-    return [...prev, { ...res, quantity: 1 }]
-  }
-})
-  }
 
   if (!products || products.length === 0) return null;
 
@@ -79,7 +61,7 @@ function SlideCards({title, products, setNewImage}) {
                 <button
                   onClick={() => {
                     setNewImage(item.images[0])
-                    getProduct(item.id)
+                    addProduct(item.id, setProductById)
                     setOpenCart(true)
                   }
                   } 

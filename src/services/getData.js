@@ -80,3 +80,26 @@ export async function getProductById(id) {
     return data
 }
 
+export async function addProduct(id, setProductById) {
+  const data = await getProductById(id)
+
+  setProductById(prev => {
+  const itemExist = prev.find(item => item.id === data.id)
+
+  if (itemExist) {
+    return prev.map(item =>
+      item.id === data.id
+        ? { ...item, quantity: (item.quantity || 0) + 1 }
+        : item
+    )
+  } else {
+    return [...prev, { ...data, quantity: 1 }]
+  }
+})
+  }
+
+export async function searchProduct(item) {
+    const {data: {products} } = await api.get(`/search?q=${item}`)
+    console.log(products)
+    return products
+}

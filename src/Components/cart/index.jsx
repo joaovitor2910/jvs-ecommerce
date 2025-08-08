@@ -5,9 +5,10 @@ import { onAuthStateChanged } from "firebase/auth";
 import Trash from '../../assets/delete.png'
 import { getProductById } from "../../services/getData";
 import { useNavigate } from "react-router-dom";
+import js from "@eslint/js";
 
 function Cart() {
-  const { userInfo, openCart, setUserInfo, productById, setProductById } =
+  const { userInfo, openCart, setUserInfo, productById, setProductById, setOpenCart } =
     useContext(UserContext);
     const navigate = useNavigate()
 
@@ -60,6 +61,15 @@ function Cart() {
       setProductById(prev => prev.filter(item => item.id !== id))
     }
 
+    const totalValue = productById.reduce((sum, item) => {
+      return sum + (item.price * 5) * item.quantity 
+      
+    }, 0).toLocaleString('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                })
+ 
+
   useEffect(() => {
     const saveLogin = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -67,13 +77,26 @@ function Cart() {
       } else {
         setUserInfo(null);
       }
-    });
+    })
 
-    return () => saveLogin();
+    const savedCart = localStorage.getItem('productById')
+    if (savedCart) {
+      setProductById(JSON.parse(savedCart))
+    }
+
+
+    return saveLogin
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('productById', JSON.stringify(productById))
+  }, [productById])
   return (
     <>
-      <div className={`fixed z-9 p-2 top-20 right-0 border-gray-800 border-3 bg-gray-800 text-white w-80 h-[87vh] flex flex-col  ${openCart ? 'block' : 'hidden'}`}>
+      <div className={`fixed z-99 p-2 top-0 right-0 border-gray-800 border-3 bg-gray-800 text-white w-80 h-[100vh] flex flex-col   ${openCart ? 'block' : 'hidden'}`}>
+        <button className="bg-white text-gray-800 rounded-full w-6 cursor-pointer mb-4"
+        onClick={() => setOpenCart(false)}
+        >X</button>
         <div className="overflow-y-auto">
           {productById.length === 0 ? (
             <p className="text-lg">Seu carrinho está vazio... Adicione mais itens</p>
@@ -84,10 +107,10 @@ function Cart() {
           <div key={item.id} className="flex border-b-1 border-white">
           <div
                 style={{ backgroundImage: `url(${item.images[0]})` }}
-                className="h-30 md:h-20 md:w-20 bg-cover bg-center bg-gray-800 bg-no-repeat cursor-pointer"
+                className="h-30 md:h-15 md:w-15 bg-contain bg-gray-800 bg-no-repeat cursor-pointer"
                 ></div>
 
-              <div className="flex flex-col pl-2 pt-3">
+              <div className="flex flex-col pl-2 pt-1">
                 <p
                   className="hover:text-gray-200 cursor-pointer"
                   >
@@ -111,15 +134,17 @@ function Cart() {
                 <button className="text-3xl cursor-pointer" onClick={() => incrementItem(item.id)}>+</button>
               </div>
               </div>
-              <img src={Trash} className="w-7 h-7 relative right-2 mt-2 cursor-pointer" onClick={() => removeItem(item.id)} alt="trash-image"/>
+              <img src={Trash} className="w-7 h-7 relative right-2 mt-3 cursor-pointer" onClick={() => removeItem(item.id)} alt="trash-image"/>
               
         </div>
-        ))}
+        ))
+        }
         </>
     )}
         </div>
-        <div className="flex justify-center pt-2  text-gray-800 ">
-        <button className="cursor-pointer bg-white w-full h-full p-2 rounded-sm hover:bg-gray-800 hover:text-white mt-auto transition duration-300 border-1"
+        <div className=" pt-2 mt-auto text-gray-800 ">
+    <p className="text-blue-500">Total: {totalValue}</p>
+        <button className="cursor-pointer bg-white w-full py-2 rounded-sm hover:bg-gray-800 hover:text-white transition duration-300 border-1"
         onClick={() => handleCheckout(userInfo)}
         >Finalizar Carrinho</button>
         </div>

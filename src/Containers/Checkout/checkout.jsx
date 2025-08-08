@@ -1,7 +1,7 @@
 function Checkout() {
     return (
         <div>
-            <p>Tela de checkout em Desenvolvimento...</p>
+            <p>checkout em Desenvolvimento...</p>
         </div>
     )
 }

@@ -1,18 +1,22 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getProductsByCategory } from "../../services/getData";
+import { addProduct, getProductsByCategory } from "../../services/getData";
 import Header from "../../Components/Header";
 import Sidebar from "../../Components/Sidebar";
 import { UserContext } from "../../contexts/globalContexts";
+import Cart from "../../Components/cart";
 
 function CategoryProducts() {
   const { id } = useParams();
   const [products, setProducts] = useState();
-  const {setNewImage} = useContext(UserContext)
+  const {setNewImage, setProductById, setCategory, setUserMenu} = useContext(UserContext)
   const navigate = useNavigate()
   useEffect(() => {
     async function getProducts() {
       setProducts(await getProductsByCategory(id));
+      setCategory(false)
+      setUserMenu(false)
+
     }
     getProducts();
   }, [products]);
@@ -21,6 +25,7 @@ function CategoryProducts() {
       <Header />
       <div className="w-full md:flex">
       <Sidebar />
+      <Cart />
       {products && (
         <div className="bg-white w-full grid grid-cols-2 justify-center md:gap-2 md:bg-gray-200 gap-2 place-items-start ">
           {products.map((item) => (
@@ -56,14 +61,24 @@ function CategoryProducts() {
                 )}`}</p>
 
                 <button
-                  onClick={() => setNewImage(item.images[0])}
+                  onClick={() => {
+                    setNewImage(item.images[0])
+                    addProduct(item.id, setProductById)
+                  } 
+
+                  }
                   className="bg-gray-800 flex justify-evenly items-center text-white px-2 py-2 rounded-md font-semibold hover:bg-gray-700 md:mt-15 transition-colors cursor-pointer"
                 >
                   Adicionar ao Carrinho
                 </button>
                 <button
-                  onClick={() => setNewImage(item.images[0])}
+                  onClick={() => {
+                    setNewImage(item.images[0])
+                    navigate(`/detalhes/${item.id}`)
+                  } 
+                }
                   className="bg-gray-800 flex justify-evenly items-center text-white px-2 py-2 rounded-md font-semibold hover:bg-gray-700 md:mt-5 transition-colors cursor-pointer"
+
                 >
                   Comprar
                 </button>
