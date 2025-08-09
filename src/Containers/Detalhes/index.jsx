@@ -25,7 +25,7 @@ function Detalhes() {
         <MenuCategorias />
         <Cart />
         {detalhes && images && (
-          <div className="md:bg-gray-100 bg-white absolute z-5 w-full md:h-[full] md:p-4 p-2">
+          <div className="md:bg-gray-100 bg-white absolute z-5 w-full md:h-full md:p-4 p-2">
             <div className="md: rounded-md md:shadow-2xl flex flex-col md:flex-row w-full md:h-full md:px-2 md:justify-evenly bg-white">
               <div className="flex order-2 md:order-1 p-6 flex-row md:flex-col w-full md:w-[100px] md:h-full justify-center md:justify-start gap-2 md:p-1">
                 {images.map((image) => (
