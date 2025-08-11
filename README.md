@@ -23,7 +23,9 @@ Para a listagem dos produtos, foi utilizada a [DummyJSON API](https://dummyjson.
 - ✅ Design clean e moderno
 - ✅ Navegação por categorias
 - ✅ Exibição de detalhes básicos de cada produto
-- ✅ Estrutura preparada para futura adição de funcionalidades como carrinho e página de produto detalhado
+- ✅ Carrinho de produtos
+- ✅ Filtro de pesquisa por nome do produto
+- ✅ Login com Firebase e Google Auth
 
 ---
 
@@ -42,6 +44,7 @@ O layout foi projetado para se adaptar bem a diferentes tamanhos de tela, desde 
 | **Swiper.js**     | Biblioteca para criação de carrosséis responsivos |
 | **DummyJSON API** | API pública utilizada para simular os produtos |
 | **Vercel**        | Plataforma de deploy para hosped
+🔐 **Firebase Authentication** (Google Auth)
 
 ## 🚀 Como Executar o Projeto Localmente
 
@@ -80,6 +83,7 @@ Durante o desenvolvimento deste projeto, pude praticar:
 - **Componentização e reutilização de código**
 - **Responsividade Mobile First**
 - **Deploy de aplicação Front-end**
+- **Implementação de Autenticação Com Firebase**
 
 ---
 
